@@ -93,7 +93,7 @@
     var from = document.getElementById("email").value;
 	var subject = document.getElementById("subject").value;
 	var mesage = document.getElementById("message").value;
-	if(from =="" || subject=="" || mesage == "")
+	if(!from.match("@") || subject=="" || mesage == "")
      { 
 	    alert("Please fill in the fields ");
 	 }
