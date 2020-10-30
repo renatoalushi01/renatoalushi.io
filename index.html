@@ -18,7 +18,7 @@
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/renato-alushi.jpg);"></a>
 	        <ul class="list-unstyled components mb-5">
 	          <li class="active">
-	           <a href="index.html">Home</a>
+	           <a href="https://renatoalushi01.github.io/">Home</a>
 	          </li>
 	          
 	          <li>
@@ -69,13 +69,52 @@
         </nav>
 
         <h2 class="mb-4">Renato Alushi</h2>
-        
+        <div id="contact" class="col-md-4">
+			<form>
+				<label for="email" class="control-label">Your Email Address</label><br>
+				<input type="text" id="email" name="email"  class="form-control" required><br>
+				<label for="subject" class="control-label">Subject</label><br>
+				<input type="text" id="subject" name="subject" class="form-control" required><br><br>
+				<label for="message" class="control-label">Message</label>
+				<textarea  class="form-control" id="message" required></textarea>
+				<input type="button" value="Send Email" class="btn btn-primary" 
+				onclick="sendEmail()" />
+			</form>
+		</div>
       </div>
 		</div>
-
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+	<script src= "https://smtpjs.com/v3/smtp.js"></script>
+	<script type="text/javascript">
+	function sendEmail() {
+    var from = document.getElementById("email").value;
+	var subject = document.getElementById("subject").value;
+	var mesage = document.getElementById("message").value;
+	if(from =="" || subject=="" || mesage == "")
+     { 
+	    alert("Form is emty");
+	 }
+		else
+		{
+		 
+			Email.send({ 
+				Host: "smtp.gmail.com", 
+				Username: "gimiagim903@gmail.com", 
+				Password: "A1g2i3m4i5", 
+				To: 'renato.alushi01@gmail.com', 
+				From: "gimiagim903@gmail.com", 
+				Subject: subject, 
+				Body: from+" Message send: "+mesage, 
+			}) 
+			.then(function (message) { 
+				alert("mail sent successfully") 
+			}); 
+		} 
+	}
+    
+  </script> 
   </body>
 </html>
