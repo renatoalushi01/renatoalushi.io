@@ -4,9 +4,23 @@ function sendEmail() {
 	var mesage = document.getElementById("message").value;
     var name = document.getElementById("name").value;
     var fullsubject = name +": "+subject;
-	if(!from.match("@") || subject=="" || mesage == "" || name =="")
+	if(!from.match("@"))
      { 
-	    document.getElementById("error").innerHTML = "Form is all Required";
+		var tag = document.createElement("p");
+   		var text = document.createTextNode("Email is not Valid");
+   		tag.appendChild(text);
+		   var element = document.getElementById("error");
+   		element.appendChild(tag);
+		   console.log(element);
+		   return ;
+	 }else if(subject=="" || mesage == "" || name ==""){
+		var tag = document.createElement("p");
+		var text = document.createTextNode("Form is all Required");
+		tag.appendChild(text);
+		var element = document.getElementById("error");
+		element.appendChild(tag);
+		console.log(element);
+		return ;
 	 }
 		else
 		{
